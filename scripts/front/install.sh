@@ -8,9 +8,15 @@
 # L'utilisateur doit avoir le droit d'utiliser sudo
 #####################################################
 
+# Get WAR
+sudo wget $LINK_FRONT
+
 # Installation
-sudo cp $SCRIPT_PATH/releases/$1/crm-ihm-app-$1.tar.gz2 /opt/crcesu/crm
+sudo cp crm-ihm-app-$1.tar.gz2 /opt/crcesu/crm
 sudo mkdir -p /opt/crcesu/crm/crm-ihm-app-$1
 sudo tar -xjvf /opt/crcesu/crm/crm-ihm-app-$1.tar.gz2 -C /opt/crcesu/crm/crm-ihm-app-$1/
 sudo ln -s /opt/crcesu/crm/crm-ihm-app-$1 /opt/crcesu/crm/crm-ihm-app
 sudo chown crcesu-crm:crcesu-crm /opt/crcesu/crm/crm-ihm-app
+
+# Clean
+sudo rm -fr crm-ihm-app-$1.tar.gz2

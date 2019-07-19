@@ -33,21 +33,13 @@ sudo rm -fr /opt/crcesu/crm/crm-api-app.war
 sudo rm -fr /opt/crcesu/crm/crm-api.yml
 sudo rm -fr /opt/crcesu/crm/crm-ihm-app
 
-# Archivage du précédent rollback
-sudo cp /opt/crcesu/crm/rollback/*.war /opt/crcesu/crm/archive/
-sudo cp /opt/crcesu/crm/rollback/crm-api*.yml /opt/crcesu/crm/archive/
-sudo cp -r /opt/crcesu/crm/rollback/crm-ihm-app* /opt/crcesu/crm/archive/
+# Rollback
+sudo cp /opt/crcesu/crm/rollback/*.war /opt/crcesu/crm/
+sudo cp /opt/crcesu/crm/rollback/crm-api*.yml /opt/crcesu/crm/
+sudo cp -r /opt/crcesu/crm/rollback/crm-ihm-app* /opt/crcesu/crm/
 sudo rm -fr /opt/crcesu/crm/rollback/*.war
 sudo rm -fr /opt/crcesu/crm/rollback/crm-api*.yml
-sudo rm -fr /opt/crcesu/crm/rollback/crm-ihm-app* 
-
-# Rollback
-sudo cp /opt/crcesu/crm/*.war /opt/crcesu/crm/rollback/
-sudo cp /opt/crcesu/crm/crm-api*.yml /opt/crcesu/crm/rollback/
-sudo cp -r /opt/crcesu/crm/crm-ihm-app* /opt/crcesu/crm/rollback/
-sudo rm -fr /opt/crcesu/crm/*.war
-sudo rm -fr /opt/crcesu/crm/crm-api*.yml
-sudo rm -fr /opt/crcesu/crm/crm-ihm-app*
+sudo rm -fr /opt/crcesu/crm/rollback/crm-ihm-app*
 
 # Installation du back
 sh $SCRIPT_PATH/scripts/back/install.sh $2

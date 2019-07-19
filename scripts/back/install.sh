@@ -8,8 +8,11 @@
 # L'utilisateur doit avoir le droit d'utiliser sudo
 #####################################################
 
+# Get WAR
+sudo wget $LINK_BACK
+
 # Installation
-sudo cp $SCRIPT_PATH/releases/$1/crm-api-app-$1.war /opt/crcesu/crm
+sudo cp crm-api-app-$1.war /opt/crcesu/crm
 sudo ln -s /opt/crcesu/crm/crm-api-app-$1.war /opt/crcesu/crm/crm-api-app.war
 sudo chown crcesu-crm:crcesu-crm /opt/crcesu/crm/*.war
 
@@ -69,3 +72,6 @@ sudo cp $SCRIPT_PATH/templates/back/crm-api.service /etc/systemd/system/crm-api.
 # Démarrage
 sudo systemctl enable crm-api.service
 sudo systemctl start crm-api.service
+
+# Clean
+sudo rm -fr crm-api-app-$1.war

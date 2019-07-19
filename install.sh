@@ -14,6 +14,7 @@
 # Initialisation des variables d'environnements
 export SCRIPT_PATH=`pwd`
 source $SCRIPT_PATH/config/$1.sh
+source $SCRIPT_PATH/releases/$2.sh
 
 # Permissions
 sudo chmod -R +x $SCRIPT_PATH/scripts
