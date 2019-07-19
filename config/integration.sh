@@ -6,20 +6,20 @@
 #####################################################
 
 # Informations serveur
-export SERVER_NAME="rec-crm.cr-cesu.fr"
+export SERVER_NAME="crm.cr-cesu.fr"
 
 # SSL
 export SSL_CHAIN_FILE="/etc/ssl/cesu-certs/cr-cesu.chain"
 export SSL_KEY_FILE="/etc/ssl/cesu-certs/cr-cesu.key"
-export SSL_ENABLED=1
+export SSL_ENABLED=0
 
 # BDD
-export BDD_HOST="172.16.12.5"
+export BDD_HOST="localhost"
 export BDD_PORT=50000
-export BDD_NAME="PPRDCESU"
+export BDD_NAME="crt"
 export BDD_SCHEMA="CRT"
-export BDD_USER="db2crmrec"
-export BDD_PASSWORD="CRMdb2rec"
+export BDD_USER="db2inst1"
+export BDD_PASSWORD="password"
 
 # Elastic Search
 ### /!\ Non utilisé pour le moment

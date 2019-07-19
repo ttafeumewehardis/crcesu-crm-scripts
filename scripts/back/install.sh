@@ -20,15 +20,47 @@ rm -fr WEB-INF
 
 # Remplacement des paramètres
 sudo cat /opt/crcesu/crm/crm-api.yml | yq w - spring.datasource.url "jdbc:db2://$BDD_HOST:$BDD_PORT/$BDD_NAME" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - spring.datasource.username "$BDD_USER" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - spring.datasource.password "$BDD_PASSWORD" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - spring.datasource.hikari.data-source-properties.currentSchema "$BDD_SCHEMA" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - jhipster.logging.logstash.enabled "$LOGSTASH_ENABLED" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - jhipster.logging.logstash.host "$LOGSTASH_HOST" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - jhipster.logging.logstash.port "$LOGSTASH_PORT" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - jhipster.logging.logstash.queue-size "$LOGSTASH_SIZE" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - application.service.ws.endpoint "$CRCESU_PASSWORD_ENDPOINT" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
-sudo cat /opt/crcesu/crm/crm-api.yml | yq w - application.service.ws.timeout "$CRCESU_PASSWORD_TIMEOUT" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+if [ ! -z "$BDD_USER" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - spring.datasource.username $BDD_USER | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$BDD_PASSWORD" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - spring.datasource.password $BDD_PASSWORD | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$BDD_SCHEMA" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - spring.datasource.hikari.data-source-properties.currentSchema $BDD_SCHEMA | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$LOGSTASH_ENABLED" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - jhipster.logging.logstash.enabled $LOGSTASH_ENABLED | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$LOGSTASH_HOST" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - jhipster.logging.logstash.host $LOGSTASH_HOST | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$LOGSTASH_PORT" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - jhipster.logging.logstash.port $LOGSTASH_PORT | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$LOGSTASH_SIZE" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - jhipster.logging.logstash.queue-size $LOGSTASH_SIZE | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$CRCESU_PASSWORD_ENDPOINT" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - application.service.ws.endpoint $CRCESU_PASSWORD_ENDPOINT | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$CRCESU_PASSWORD_TIMEOUT" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - application.service.ws.timeout $CRCESU_PASSWORD_TIMEOUT | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+if [ ! -z "$CRCESU_PASSWORD_HEADER_API" ]
+then
+sudo cat /opt/crcesu/crm/crm-api.yml | yq w - application.service.ws.header.x-apikey $CRCESU_PASSWORD_HEADER_API | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
+fi
+cp /opt/crcesu/crm/crm-api.yml /opt/crcesu/crm/crm-api-$1.yml
 sudo chown -R crcesu-crm:crcesu-crm /opt/crcesu/crm
 
 # Création du service

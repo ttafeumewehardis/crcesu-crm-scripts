@@ -22,7 +22,7 @@ sudo chmod -R +x $SCRIPT_PATH/scripts
 sh $SCRIPT_PATH/scripts/install/os.sh
 
 # Installation de NGinx
-sh $SCRIPT_PATH/scripts/install/nginx.sh
+sh $SCRIPT_PATH/scripts/install/nginx.sh 0
 
 # Installation du back
 sh $SCRIPT_PATH/scripts/back/init.sh
@@ -31,3 +31,6 @@ sh $SCRIPT_PATH/scripts/back/install.sh $2
 # Installation du front
 sh $SCRIPT_PATH/scripts/front/init.sh
 sh $SCRIPT_PATH/scripts/front/install.sh $2
+
+# Redémarrage de NGinx
+sudo nginx -s reload
