@@ -9,7 +9,7 @@
 #####################################################
 
 # Get WAR
-sudo wget $LINK_FRONT
+sudo wget https://hardis-crcesu-releases.s3.eu-west-3.amazonaws.com/$1/crm-ihm-app-$1.zip
 
 # Installation
 sudo cp crm-ihm-app-$1.zip /opt/crcesu/crm

@@ -9,7 +9,7 @@
 #####################################################
 
 # Get WAR
-sudo wget $LINK_BACK
+sudo wget https://hardis-crcesu-releases.s3.eu-west-3.amazonaws.com/$1/crm-api-app-$1.war
 
 # Installation
 sudo cp crm-api-app-$1.war /opt/crcesu/crm
