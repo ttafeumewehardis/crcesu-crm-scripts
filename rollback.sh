@@ -19,35 +19,44 @@ source $SCRIPT_PATH/config/$1.sh
 sudo chmod -R +x $SCRIPT_PATH/scripts
 
 # Mise en maintenance
-sudo -u crcesu-crm touch /opt/crcesu/crm/maintenance/crm_ihm.lock
+echo " ------- Mise en maintenance ------- "
+sudo -u crcesu-crm touch /opt/crcesu/crm/maintenance/crm_ihm.lock >> /dev/null
 
 # Arrêt des services
-sudo systemctl stop crm-api.service
+echo " ------- Arrêt du service ------- "
+sudo systemctl stop crm-api.service >> /dev/null
 
 # Update de NGinx
-sh $SCRIPT_PATH/scripts/install/nginx.sh 1
+echo " ------- MAJ NGinx ------- "
+sh $SCRIPT_PATH/scripts/install/nginx.sh 1 >> /dev/null
 
 # Suppression des liens
-sudo rm -fr /opt/crcesu/crm/crm-api-app.war
-sudo rm -fr /opt/crcesu/crm/crm-api.yml
-sudo rm -fr /opt/crcesu/crm/crm-ihm-app
+echo " ------- Suppression de l'application ------- "
+sudo rm -fr /opt/crcesu/crm/crm-api-app.war >> /dev/null
+sudo rm -fr /opt/crcesu/crm/crm-api.yml >> /dev/null
+sudo rm -fr /opt/crcesu/crm/crm-ihm-app >> /dev/null
 
 # Rollback
-sudo cp /opt/crcesu/crm/rollback/*.war /opt/crcesu/crm/
-sudo cp /opt/crcesu/crm/rollback/crm-api*.yml /opt/crcesu/crm/
-sudo cp -r /opt/crcesu/crm/rollback/crm-ihm-app* /opt/crcesu/crm/
-sudo rm -fr /opt/crcesu/crm/rollback/*.war
-sudo rm -fr /opt/crcesu/crm/rollback/crm-api*.yml
-sudo rm -fr /opt/crcesu/crm/rollback/crm-ihm-app*
+echo " ------- Rollback ------- "
+sudo cp /opt/crcesu/crm/rollback/*.war /opt/crcesu/crm/ >> /dev/null
+sudo cp /opt/crcesu/crm/rollback/crm-api*.yml /opt/crcesu/crm/ >> /dev/null
+sudo cp -r /opt/crcesu/crm/rollback/crm-ihm-app* /opt/crcesu/crm/ >> /dev/null
+sudo rm -fr /opt/crcesu/crm/rollback/*.war >> /dev/null
+sudo rm -fr /opt/crcesu/crm/rollback/crm-api*.yml >> /dev/null
+sudo rm -fr /opt/crcesu/crm/rollback/crm-ihm-app* >> /dev/null
 
 # Installation du back
-sh $SCRIPT_PATH/scripts/back/install.sh $2
+echo " ------- Installation du backend ------- "
+sh $SCRIPT_PATH/scripts/back/install.sh $2 >> /dev/null
 
 # Installation du front
-sh $SCRIPT_PATH/scripts/front/install.sh $2
-
-# Suppression maintenance
-sudo rm /opt/crcesu/crm/maintenance/crm_ihm.lock
+echo " ------- Installation du frontend ------- "
+sh $SCRIPT_PATH/scripts/front/install.sh $2 >> /dev/null
 
 # Redémarrage de NGinx
-sudo nginx -s reload
+echo " ------- Rechargement NGinx ------- "
+sudo nginx -s reload >> /dev/null
+
+# Suppression maintenance
+echo " ------- Remise en service ------- "
+sudo rm /opt/crcesu/crm/maintenance/crm_ihm.lock >> /dev/null
