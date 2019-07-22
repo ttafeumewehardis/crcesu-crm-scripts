@@ -6,7 +6,7 @@
 #####################################################
 
 # Informations serveur
-export SERVER_NAME="crm.cr-cesu.fr"
+export SERVER_NAME="hgpvnxappdlv003"
 
 # SSL
 export SSL_CHAIN_FILE="/etc/ssl/cesu-certs/cr-cesu.chain"
@@ -14,7 +14,7 @@ export SSL_KEY_FILE="/etc/ssl/cesu-certs/cr-cesu.key"
 export SSL_ENABLED=0
 
 # BDD
-export BDD_HOST="localhost"
+export BDD_HOST="hgpvnxappdlv004"
 export BDD_PORT=50000
 export BDD_NAME="crt"
 export BDD_SCHEMA="CRT"

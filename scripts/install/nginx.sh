@@ -30,8 +30,7 @@ sudo cp $SCRIPT_PATH/templates/nginx/crm.conf /etc/nginx/sites-available/crm.con
 if [ $SSL_ENABLED -eq 0 ]
 then
     sudo sed -i s/ssl/\#ssl/g /etc/nginx/sites-available/crm.conf
-    sudo sed -i s#"listen 443;"#"listen 80;"#g /etc/nginx/sites-available/crm.conf
-    sudo sed -i s#"listen [::]:443;"#"listen [::]:80;"#g /etc/nginx/sites-available/crm.conf
+    sudo sed -i s#"443;"#"80;"#g /etc/nginx/sites-available/crm.conf
 fi
 
 # Remplacement des variables

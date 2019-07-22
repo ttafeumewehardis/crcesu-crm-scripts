@@ -16,3 +16,6 @@ export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 # Installation de YAML commond line tool
 sudo add-apt-repository ppa:rmescandon/yq -y -u
 sudo apt install yq -y
+
+# Installation unzip
+sudo apt install -y unzip

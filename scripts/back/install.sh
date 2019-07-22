@@ -17,9 +17,10 @@ sudo ln -s /opt/crcesu/crm/crm-api-app-$1.war /opt/crcesu/crm/crm-api-app.war
 sudo chown crcesu-crm:crcesu-crm /opt/crcesu/crm/*.war
 
 # Extraction du fichier template de configuration
-jar xvf $SCRIPT_PATH/releases/$1/crm-api-app-$1.war WEB-INF/classes/config/application-template.yml
+jar xvf crm-api-app-$1.war WEB-INF/classes/config/application-template.yml
 sudo mv WEB-INF/classes/config/application-template.yml /opt/crcesu/crm/crm-api.yml
-rm -fr WEB-INF
+sudo rm -fr WEB-INF
+sudo rm -fr crm-api-app-$1.war
 
 # Remplacement des paramètres
 sudo cat /opt/crcesu/crm/crm-api.yml | yq w - spring.datasource.url "jdbc:db2://$BDD_HOST:$BDD_PORT/$BDD_NAME" | sudo tee /opt/crcesu/crm/crm-api.yml.tmp && sudo mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml
