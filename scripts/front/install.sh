@@ -14,7 +14,7 @@ sudo wget $LINK_FRONT
 # Installation
 sudo cp crm-ihm-app-$1.zip /opt/crcesu/crm
 sudo mkdir -p /opt/crcesu/crm/crm-ihm-app-$1
-sudo unzip /opt/crcesu/crm/crm-ihm-app-$1.zip -d /opt/crcesu/crm/crm-ihm-app-$1/
+sudo unzip -o /opt/crcesu/crm/crm-ihm-app-$1.zip -d /opt/crcesu/crm/crm-ihm-app-$1/
 sudo ln -s /opt/crcesu/crm/crm-ihm-app-$1 /opt/crcesu/crm/crm-ihm-app
 sudo chown crcesu-crm:crcesu-crm /opt/crcesu/crm/crm-ihm-app
 sudo rm -fr crm-ihm-app-$1.zip

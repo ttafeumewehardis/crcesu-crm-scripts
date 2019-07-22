@@ -19,6 +19,9 @@ source $SCRIPT_PATH/releases/$2.sh
 # Permissions
 sudo chmod -R +x $SCRIPT_PATH/scripts
 
+# Update page de maintenance
+sudo cp -r $SCRIPT_PATH/releases/maintenance /opt/crcesu/crm/
+
 # Mise en maintenance
 sudo -u crcesu-crm touch /opt/crcesu/crm/maintenance/crm_ihm.lock
 

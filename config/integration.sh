@@ -14,12 +14,12 @@ export SSL_KEY_FILE="/etc/ssl/cesu-certs/cr-cesu.key"
 export SSL_ENABLED=0
 
 # BDD
-export BDD_HOST="hgpvnxappdlv004"
+export BDD_HOST="HGPVNXDB2PWV002"
 export BDD_PORT=50000
-export BDD_NAME="crt"
+export BDD_NAME="DEVCESUS"
 export BDD_SCHEMA="CRT"
-export BDD_USER="db2inst1"
-export BDD_PASSWORD="password"
+export BDD_USER="tplanif"
+export BDD_PASSWORD="tpl@nif123"
 
 # Elastic Search
 ### /!\ Non utilisé pour le moment
