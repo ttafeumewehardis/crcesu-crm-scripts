@@ -19,18 +19,23 @@ source $SCRIPT_PATH/config/$1.sh
 sudo chmod -R +x $SCRIPT_PATH/scripts
 
 # Préparation de l'OS
-sh $SCRIPT_PATH/scripts/install/os.sh
+echo " ------- Installation des outils ------- "
+sh $SCRIPT_PATH/scripts/install/os.sh >> /dev/null
 
 # Installation de NGinx
-sh $SCRIPT_PATH/scripts/install/nginx.sh 0
+echo " ------- Installation de NGinx ------- "
+sh $SCRIPT_PATH/scripts/install/nginx.sh 0 >> /dev/null
 
 # Installation du back
-sh $SCRIPT_PATH/scripts/back/init.sh
-sh $SCRIPT_PATH/scripts/back/install.sh $2
+echo " ------- Installation du backend ------- "
+sh $SCRIPT_PATH/scripts/back/init.sh >> /dev/null
+sh $SCRIPT_PATH/scripts/back/install.sh $2 >> /dev/null
 
 # Installation du front
-sh $SCRIPT_PATH/scripts/front/init.sh
-sh $SCRIPT_PATH/scripts/front/install.sh $2
+echo " ------- Installation du front ------- "
+sh $SCRIPT_PATH/scripts/front/init.sh >> /dev/null
+sh $SCRIPT_PATH/scripts/front/install.sh $2 >> /dev/null
 
 # Redémarrage de NGinx
-sudo nginx -s reload
+echo " ------- Redémarrage de NGinx ------- "
+sudo nginx -s reload >> /dev/null
