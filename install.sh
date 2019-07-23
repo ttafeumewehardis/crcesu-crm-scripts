@@ -39,3 +39,7 @@ sh $SCRIPT_PATH/scripts/front/install.sh $2 >> /dev/null
 # Redémarrage de NGinx
 echo " ------- Redémarrage de NGinx ------- "
 sudo nginx -s reload >> /dev/null
+
+# Attente démarrage
+echo " ------- Attente démarrage ------- "
+sleep 30

@@ -30,6 +30,10 @@ sudo -u crcesu-crm touch /opt/crcesu/crm/maintenance/crm_ihm.lock >> /dev/null
 echo " ------- Arrêt du service ------- "
 sudo systemctl stop crm-api.service >> /dev/null
 
+# Attente arrêt
+echo " ------- Attente arrêt ------- "
+sleep 30
+
 # Update de NGinx
 echo " ------- MAJ NGinx ------- "
 sh $SCRIPT_PATH/scripts/install/nginx.sh 1 >> /dev/null
@@ -69,6 +73,10 @@ sh $SCRIPT_PATH/scripts/front/install.sh $2 >> /dev/null
 # Redémarrage de NGinx
 echo " ------- Rechargement NGinx ------- "
 sudo nginx -s reload >> /dev/null
+
+# Attente démarrage
+echo " ------- Attente démarrage ------- "
+sleep 30
 
 # Suppression maintenance
 echo " ------- Remise en service ------- "
