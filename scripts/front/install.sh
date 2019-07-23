@@ -17,7 +17,6 @@ sudo mkdir -p /opt/crcesu/crm/crm-ihm-app-$1 >> /dev/null
 sudo unzip -o /opt/crcesu/crm/crm-ihm-app-$1.zip -d /opt/crcesu/crm/crm-ihm-app-$1/ >> /dev/null
 sudo ln -s /opt/crcesu/crm/crm-ihm-app-$1 /opt/crcesu/crm/crm-ihm-app >> /dev/null
 sudo chown crcesu-crm:crcesu-crm /opt/crcesu/crm/crm-ihm-app >> /dev/null
-sudo rm -fr crm-ihm-app-$1.zip >> /dev/null
 
 # Clean
 sudo rm -fr crm-ihm-app-$1.zip >> /dev/null
