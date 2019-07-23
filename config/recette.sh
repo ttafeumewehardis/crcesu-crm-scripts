@@ -6,7 +6,7 @@
 #####################################################
 
 # Informations serveur
-export SERVER_NAME="rec-crm.cr-cesu.fr"
+export SERVER_NAME="srv-crm-cesu.cr-cesu.fr"
 
 # SSL
 export SSL_CHAIN_FILE="/etc/ssl/cesu-certs/cr-cesu.chain"

@@ -6,7 +6,7 @@
 # $2 : version
 
 ##################### Pré-requis #####################
-# L'utilisateur doit avoir le droit d'utiliser sudo
+# L'utilisateur doit avoir le droit root
 # La base de données doit être accessible depuis le serveur
 # Remplir les variables avec les bonnes valeurs
 #####################################################
@@ -16,7 +16,7 @@ export SCRIPT_PATH=`pwd`
 source $SCRIPT_PATH/config/$1.sh
 
 # Permissions
-sudo chmod -R +x $SCRIPT_PATH/scripts
+chmod -R +x $SCRIPT_PATH/scripts
 
 # Préparation de l'OS
 echo " ------- Installation des outils ------- "
@@ -38,8 +38,8 @@ sh $SCRIPT_PATH/scripts/front/install.sh $2 >> /dev/null
 
 # Redémarrage de NGinx
 echo " ------- Redémarrage de NGinx ------- "
-sudo nginx -s reload >> /dev/null
+nginx -s reload >> /dev/null
 
 # Attente démarrage
 echo " ------- Attente démarrage ------- "
-sleep 30
+sleep 60
