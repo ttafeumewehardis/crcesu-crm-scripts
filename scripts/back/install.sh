@@ -64,6 +64,14 @@ if [ ! -z "$CRCESU_PASSWORD_HEADER_API" ]
 then
     cat /opt/crcesu/crm/crm-api.yml | $SCRIPT_PATH/bin/yq_linux_amd64 w - application.service.ws.header.x-apikey $CRCESU_PASSWORD_HEADER_API | tee /opt/crcesu/crm/crm-api.yml.tmp && mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml >> /dev/null
 fi
+if [ ! -z "$FILE_MOUNT_POINT" ]
+then
+    cat /opt/crcesu/crm/crm-api.yml | $SCRIPT_PATH/bin/yq_linux_amd64 w - application.file.mount-point $FILE_MOUNT_POINT | tee /opt/crcesu/crm/crm-api.yml.tmp && mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml >> /dev/null
+fi
+if [ ! -z "$UPLOAD_MOUNT_POINT" ]
+then
+    cat /opt/crcesu/crm/crm-api.yml | $SCRIPT_PATH/bin/yq_linux_amd64 w - application.file.upload-dir $UPLOAD_MOUNT_POINT | tee /opt/crcesu/crm/crm-api.yml.tmp && mv /opt/crcesu/crm/crm-api.yml.tmp /opt/crcesu/crm/crm-api.yml >> /dev/null
+fi
 cp /opt/crcesu/crm/crm-api.yml /opt/crcesu/crm/crm-api-$1.yml >> /dev/null
 chown -R crcesu-crm:crcesu-crm /opt/crcesu/crm >> /dev/null
 
