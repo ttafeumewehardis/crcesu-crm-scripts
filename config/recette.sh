@@ -37,3 +37,7 @@ export LOGSTASH_SIZE=512
 export CRCESU_PASSWORD_ENDPOINT="http://srv-ms-dev01:8090/api/PasswordOublie/EnvoiCourrierOrEmailAsync"
 export CRCESU_PASSWORD_TIMEOUT=
 export CRCESU_PASSWORD_HEADER_API="EBTK6psJCjddGsyJtU3A"
+
+# Mount Point
+export FILE_MOUNT_POINT="/mnt/crmcesu"
+export UPLOAD_MOUNT_POINT="/mnt/crmcesu"
